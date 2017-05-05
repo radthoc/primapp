@@ -2,40 +2,43 @@
 
 namespace AppBundle\Tests\Util;
 
-use AppBundle\Util\PrimeNumbers;
+use AppBundle\Util\NumberPatternGenerator;
+use AppBundle\Util\PrimeNumberHandler;
 use PHPUnit\Framework\TestCase;
 
 class PrimeNumbersTest extends TestCase
 {
-    private $primeNumbersService;
+    private $numberPatternHandler;
 
     protected function setUp()
     {
-        $this->primeNumbersService = new PrimeNumbers();
+        $this->numberPatternHandler = new NumberPatternGenerator();
     }
 
     protected function tearDown()
     {
-        $this->primeNumbersService = null;
+        $this->numberPatternHandler = null;
     }
 
     public function testIfNumberIsPrime()
     {
-        $this->assertTrue($this->primeNumbersService->isPrime(199));
+        $primeNumberPattern = new PrimeNumberHandler();
+        $this->assertTrue($primeNumberPattern->isInPattern(199));
     }
 
     public function test10FirstPrimeNumbers()
     {
         $first10PrimeNumbers = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29];
 
-        $this->assertEquals($first10PrimeNumbers, $this->primeNumbersService->getPrimeNumbers());
+        $this->assertEquals($first10PrimeNumbers, $this->numberPatternHandler->getPrimeNumbers('prime'));
     }
+
     /**
      * @dataProvider dataProvider
      */
-    public function testFirstNPrimeNumbers($numberOfPrimes, $expectedResult)
+    public function testFirstNPrimeNumbers($numbers, $pattern, $expectedResult)
     {
-        $this->assertEquals($expectedResult, $this->primeNumbersService->getPrimeNumbers($numberOfPrimes));
+        $this->assertEquals($expectedResult, $this->numberPatternHandler->getPrimeNumbers($pattern, $numbers));
     }
 
     public function dataProvider()
@@ -43,10 +46,12 @@ class PrimeNumbersTest extends TestCase
         return [
             [
                 5,
+                'prime',
                 [2, 3, 5, 7, 11]
             ],
             [
                 15,
+                'prime',
                 [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47]
             ]
         ];

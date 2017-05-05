@@ -3,4 +3,4 @@ parameters:
 
 services:
     app.prime.service:
-        class: AppBundle\Service\PrimeNumbers
+        class: AppBundle\Service\NumberPatternGenerator
