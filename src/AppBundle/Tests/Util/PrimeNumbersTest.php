@@ -16,7 +16,7 @@ class PrimeNumbersTest extends TestCase
 
     protected function tearDown()
     {
-        $this->primeNumbersService = NULL;
+        $this->primeNumbersService = null;
     }
 
     public function testIfNumberIsPrime()
