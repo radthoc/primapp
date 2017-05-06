@@ -8,30 +8,31 @@ namespace AppBundle\Util;
  */
 class NumberPatternGenerator
 {
-    const DEFAULT_PRIME_NUMBERS = 10;
+    const DEFAULT_PATTERN_LENGTH = 10;
+    const DEFAULT_PATTERN = 'prime';
     const PATTERN_HANDLER_SUFFIX = 'NumberHandler';
 
     /**
      * @param $pattern
-     * @param int $numbers
+     * @param int $length
      * @return array
      * @throws \Exception
      */
-    public function getPrimeNumbers($pattern, $numbers = self::DEFAULT_PRIME_NUMBERS)
+    public function getNumbers($pattern = self::DEFAULT_PATTERN, $length = self::DEFAULT_PATTERN_LENGTH)
     {
         $number = 1;
-        $primeNumbers = [];
+        $numbers = [];
 
         $patternHandler = $this->getPatternHandler($pattern);
 
-        while (count($primeNumbers) < $numbers) {
+        while (count($numbers) < $length) {
             if ($patternHandler->isInPattern($number)) {
-                $primeNumbers[] = $number;
+                $numbers[] = $number;
             }
             $number++;
         }
 
-        return $primeNumbers;
+        return $numbers;
     }
 
     /**

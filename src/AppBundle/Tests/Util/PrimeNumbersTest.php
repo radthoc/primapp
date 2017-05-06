@@ -30,7 +30,7 @@ class PrimeNumbersTest extends TestCase
     {
         $first10PrimeNumbers = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29];
 
-        $this->assertEquals($first10PrimeNumbers, $this->numberPatternHandler->getPrimeNumbers('prime'));
+        $this->assertEquals($first10PrimeNumbers, $this->numberPatternHandler->getNumbers('prime'));
     }
 
     /**
@@ -38,7 +38,7 @@ class PrimeNumbersTest extends TestCase
      */
     public function testFirstNPrimeNumbers($numbers, $pattern, $expectedResult)
     {
-        $this->assertEquals($expectedResult, $this->numberPatternHandler->getPrimeNumbers($pattern, $numbers));
+        $this->assertEquals($expectedResult, $this->numberPatternHandler->getNumbers($pattern, $numbers));
     }
 
     public function dataProvider()
