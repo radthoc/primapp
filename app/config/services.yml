@@ -2,5 +2,8 @@ parameters:
     #parameter_name: value
 
 services:
-    app.prime.service:
-        class: AppBundle\Service\NumberPatternGenerator
+    app.number.pattern.generator:
+        class: AppBundle\Util\NumberPatternGenerator
+
+    app.matrix.generator:
+        class:  AppBundle\Util\MatrixGenerator
