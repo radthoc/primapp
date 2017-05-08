@@ -10,7 +10,8 @@ class MatrixGenerator
 {
     public function create(array $numbers)
     {
-        $matrix = array_fill(0, count($numbers) + 1, array_fill(0, count($numbers) + 1, 0));
+        $matrix = [];
+        $matrix[0][0] = '-';
 
         foreach ($numbers as $row => $valueX) {
             $matrix[$row + 1][0] = $valueX;
