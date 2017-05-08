@@ -21,10 +21,7 @@ class PatternHandlerProvider
         $patternHandlerName = $this->getClassName($pattern);
 
         if (class_exists($patternHandlerName, true)) {
-            $patternHandler = new $patternHandlerName();
-            if ($patternHandler instanceof NumberPatternHandlerInterface) {
-                return $patternHandler;
-            }
+            return new $patternHandlerName();
         }
 
         throw new \Exception('Invalid pattern');

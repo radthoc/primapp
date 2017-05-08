@@ -52,6 +52,11 @@ class NumberPatternGenerator
      */
     private function getPatternHandler($pattern)
     {
-        return $this->patternHandlerProvider->getPatternHandler($pattern);
+        $patternHandler = $this->patternHandlerProvider->getPatternHandler($pattern);
+        if ($patternHandler instanceof NumberPatternHandlerInterface) {
+            return $patternHandler;
+        }
+
+        throw new \Exception('Invalid pattern');
     }
 }

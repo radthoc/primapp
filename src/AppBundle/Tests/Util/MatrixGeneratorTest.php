@@ -12,7 +12,7 @@ class MatrixGeneratorTest extends TestCase
         $numbers = [2, 3, 7, 11];
 
         $expectedMatrix = [
-            [ 0, 2, 3, 7, 11 ],
+            [ '-', 2, 3, 7, 11 ],
             [ 2, 4, 6, 14, 22 ],
             [ 3, 6, 9, 21, 33 ],
             [ 7, 14, 21, 49, 77 ],
