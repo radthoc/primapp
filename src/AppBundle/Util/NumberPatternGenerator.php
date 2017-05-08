@@ -10,7 +10,17 @@ class NumberPatternGenerator
 {
     const DEFAULT_PATTERN_LENGTH = 10;
     const DEFAULT_PATTERN = 'prime';
-    const PATTERN_HANDLER_SUFFIX = 'NumberHandler';
+
+    /**
+     *
+     * @var PatternHandlerProvider
+     */
+    private $patternHandlerProvider;
+
+    public function __construct(PatternHandlerProvider $patternHandlerProvider)
+    {
+        $this->patternHandlerProvider = $patternHandlerProvider;
+    }
 
     /**
      * @param $pattern
@@ -37,32 +47,11 @@ class NumberPatternGenerator
 
     /**
      * @param $pattern
-     * @return mixed
+     * @return NumberPatternHandlerInterface
      * @throws \Exception
      */
     private function getPatternHandler($pattern)
     {
-        $patternHandlerName = $this->getClassName($pattern);
-
-        if (class_exists($patternHandlerName, true)) {
-            $patternHandler = new $patternHandlerName();
-            if ($patternHandler instanceof NumberPatternHandlerInterface) {
-                return $patternHandler;
-            }
-        }
-
-        throw new \Exception('Invalid pattern');
-    }
-
-    /**
-     * @param $pattern
-     * @return string
-     */
-    private function getClassName($pattern)
-    {
-        return __NAMESPACE__ .
-            '\\' .
-            ucfirst(strtolower($pattern)) .
-            self::PATTERN_HANDLER_SUFFIX;
+        return $this->patternHandlerProvider->getPatternHandler($pattern);
     }
 }

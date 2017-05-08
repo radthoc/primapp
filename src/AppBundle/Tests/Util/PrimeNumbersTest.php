@@ -2,6 +2,7 @@
 
 namespace AppBundle\Tests\Util;
 
+use AppBundle\Util\PatternHandlerProvider;
 use AppBundle\Util\NumberPatternGenerator;
 use AppBundle\Util\PrimeNumberHandler;
 use PHPUnit\Framework\TestCase;
@@ -12,7 +13,8 @@ class PrimeNumbersTest extends TestCase
 
     protected function setUp()
     {
-        $this->numberPatternHandler = new NumberPatternGenerator();
+        $patternHandlerProvider = new PatternHandlerProvider();
+        $this->numberPatternHandler = new NumberPatternGenerator($patternHandlerProvider);
     }
 
     protected function tearDown()
