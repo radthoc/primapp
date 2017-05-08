@@ -36,6 +36,15 @@ class PrimeNumbersTest extends TestCase
     }
 
     /**
+     * @expectedException        Exception
+     * @expectedExceptionMessage Invalid pattern
+     */
+    public function testInvalidPattern()
+    {
+        $numbers = $this->numberPatternHandler->getNumbers('odd');
+    }
+
+    /**
      * @dataProvider dataProvider
      */
     public function testFirstNPrimeNumbers($numbers, $pattern, $expectedResult)
