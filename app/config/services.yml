@@ -4,7 +4,7 @@ parameters:
 services:
 
     app.pattern.provider:
-        class: AppBundle\Util\PatternHandlerProvider
+        class: AppBundle\Service\PatternHandlerProvider
 
     app.number.pattern.generator:
         class: AppBundle\Util\NumberPatternGenerator

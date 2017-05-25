@@ -2,6 +2,9 @@
 
 namespace AppBundle\Util;
 
+use AppBundle\Service\NumberPatternHandlerInterface;
+use AppBundle\Service\PatternHandlerProvider;
+
 /**
  * Class NumberPatternGenerator
  * @package AppBundle\Util

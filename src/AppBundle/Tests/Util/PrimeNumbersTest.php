@@ -2,9 +2,9 @@
 
 namespace AppBundle\Tests\Util;
 
-use AppBundle\Util\PatternHandlerProvider;
+use AppBundle\Service\PatternHandlerProvider;
 use AppBundle\Util\NumberPatternGenerator;
-use AppBundle\Util\PrimeNumberHandler;
+use AppBundle\Service\PrimeNumberService;
 use PHPUnit\Framework\TestCase;
 
 class PrimeNumbersTest extends TestCase
@@ -24,7 +24,7 @@ class PrimeNumbersTest extends TestCase
 
     public function testIfNumberIsPrime()
     {
-        $primeNumberPattern = new PrimeNumberHandler();
+        $primeNumberPattern = new PrimeNumberService();
         $this->assertTrue($primeNumberPattern->isInPattern(199));
     }
 

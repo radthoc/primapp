@@ -1,12 +1,12 @@
 <?php
 
-namespace AppBundle\Util;
+namespace AppBundle\Service;
 
 /**
- * Class PrimeNumberHandler
+ * Class PrimeNumberService
  * @package AppBundle\Util
  */
-class PrimeNumberHandler implements NumberPatternHandlerInterface
+class PrimeNumberService implements NumberPatternHandlerInterface
 {
     /**
      * @param $number

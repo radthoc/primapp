@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\Util;
+namespace AppBundle\Service;
 
 /**
  * Class PatternHandlerProvider
@@ -9,7 +9,7 @@ namespace AppBundle\Util;
 class PatternHandlerProvider
 {
 
-    const PATTERN_HANDLER_SUFFIX = 'NumberHandler';
+    const PATTERN_HANDLER_SUFFIX = 'NumberService';
 
     /**
      * @param $pattern
